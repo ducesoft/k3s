@@ -10,7 +10,7 @@ import (
 )
 
 func applyContainerdStateAndAddress(nodeConfig *config.Node) {
-	nodeConfig.Containerd.State = "/run/k3s/containerd"
+	nodeConfig.Containerd.State = filepath.Join(nodeConfig.Containerd.Root, "state")
 	nodeConfig.Containerd.Address = filepath.Join(nodeConfig.Containerd.State, "containerd.sock")
 }
 
